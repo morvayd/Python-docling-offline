@@ -39,9 +39,10 @@ strExtract = result.document.export_to_markdown()
 #
 
 #  Need to download models (easyocr) - quotes are important
-pip install "docling[easyocr]"
-#  ---- or ----
 pip install easyocr
+pip install rapidocr onnxruntime
+#  If want to run the text extraction models using GPU only
+pip install "docling-ocr-onnxtr[cpu]"
 
 #  Installed a python library - easyocr - not useful for running
 
@@ -74,7 +75,7 @@ from docling.datamodel.accelerator_options import AcceleratorDevice, Accelerator
 import os
 
 accelerator_options = AcceleratorOptions(num_threads=8, device=AcceleratorDevice.CPU)
-artifacts_path = '/Users/"+os.getlogin()+"/.cache/docling/models'
+artifacts_path = "/Users/"+os.getlogin()+"/.cache/docling/models"
 pipeline_options = PdfPipelineOptions(artifacts_path=artifacts_path)
 pipeline_options.accelerator_options = accelerator_options
 
@@ -84,7 +85,7 @@ doc_converter = DocumentConverter(
     }
 )
 
-source = "'/Users/"+os.getlogin()+"/R/PythonWorkArea/IBM Docling/2408.09869v5.pdf'"
+source = "/Users/"+os.getlogin()+"/R/PythonWorkArea/IBM Docling/2408.09869v5.pdf"
 result = doc_converter.convert(source)
 strExtract = result.document.export_to_markdown() 
 
