@@ -64,9 +64,6 @@ pip install easyocr
 pip install rapidocr onnxruntime
 #  If want to run the text extraction models using GPU only
 pip install "docling-ocr-onnxtr[cpu]"
-#  ---- or ----
-#  If you have an NVIDIA GPU & Installed CUDA
-pip install "docling-ocr-onnxtr[gpu]"
 
 #
 #  ---------- All OS - Prefetch Models ----------
