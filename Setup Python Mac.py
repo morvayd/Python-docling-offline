@@ -74,7 +74,7 @@ from docling.datamodel.accelerator_options import AcceleratorDevice, Accelerator
 import os
 
 accelerator_options = AcceleratorOptions(num_threads=8, device=AcceleratorDevice.CPU)
-artifacts_path = '/Users/dan1/.cache/docling/models'
+artifacts_path = '/Users/"+os.getlogin()+"/.cache/docling/models'
 pipeline_options = PdfPipelineOptions(artifacts_path=artifacts_path)
 pipeline_options.accelerator_options = accelerator_options
 
