@@ -84,7 +84,7 @@ doc_converter = DocumentConverter(
     }
 )
 
-source = "/Users/"+os.getlogin()+"/R/PythonWorkArea/docling testing/2408.09869v5.pdf"
+source = "/Users/"+os.getlogin()+"/R/PythonWorkArea/IBM Docling/2408.09869v5.pdf"
 result = doc_converter.convert(source)
 strExtract = result.document.export_to_markdown() 
 
