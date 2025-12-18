@@ -22,7 +22,7 @@ import os
 
 #  source = "https://arxiv.org/pdf/2408.09869"  # document per local path or URL
 
-source = "/Users/"+os.getlogin()+"/R/PythonWorkArea/docling testing/2408.09869v5.pdf"
+source = "/Users/"+os.getlogin()+"/R/PythonWorkArea/IBM Docling/2408.09869v5.pdf"
 converter = DocumentConverter()
 result = converter.convert(source)
 strExtract = result.document.export_to_markdown() 
@@ -84,7 +84,7 @@ doc_converter = DocumentConverter(
     }
 )
 
-source = "/Users/"+os.getlogin()+"/R/PythonWorkArea/IBM Docling/2408.09869v5.pdf"
+source = "'/Users/"+os.getlogin()+"/R/PythonWorkArea/IBM Docling/2408.09869v5.pdf'"
 result = doc_converter.convert(source)
 strExtract = result.document.export_to_markdown() 
 
