@@ -16,11 +16,12 @@ pip install docling
 #  Reference:  https://github.com/docling-project/docling
 
 from docling.document_converter import DocumentConverter
+import os
 
 source = "https://arxiv.org/pdf/2408.09869"  # document per local path or URL
 #  ---- or ----
 #  Download the above first, then load it locally.
-source = "/Users/dan1/R/PythonWorkArea/docling testing/2408.09869v5.pdf"
+source = "/home/"+os.getlogin()+"/R/PythonWorkArea/docling testing/2408.09869v5.pdf"
 
 converter = DocumentConverter()
 result = converter.convert(source)
@@ -99,16 +100,21 @@ docling-tools models download
 from docling.datamodel.base_models import InputFormat
 from docling.datamodel.pipeline_options import EasyOcrOptions, PdfPipelineOptions
 from docling.document_converter import DocumentConverter, PdfFormatOption
+from docling.datamodel.accelerator_options import AcceleratorDevice, AcceleratorOptions
+import os
 
-artifacts_path = '/home/dan1/.cache/docling/models'
+accelerator_options = AcceleratorOptions(num_threads=8, device=AcceleratorDevice.CPU)
+artifacts_path = "/home/"+os.getlogin()+"/.cache/docling/models"
 pipeline_options = PdfPipelineOptions(artifacts_path=artifacts_path)
+pipeline_options.accelerator_options = accelerator_options
+
 doc_converter = DocumentConverter(
     format_options={
         InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)
     }
 )
 
-source = "/media/dan1/256GB - PA/docling/2408.09869v5.pdf"
+source = "/home/"+os.getlogin()+"/R/PythonWorkArea/IBM Docling/2408.09869v5.pdf"
 result = doc_converter.convert(source)
 strExtract = result.document.export_to_markdown() 
 
